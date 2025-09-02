@@ -1,4 +1,3 @@
--- Gemini Generated Library Schema
 -- テーブルを削除し、再作成できるようにする (開発環境向け)
 DROP TABLE IF EXISTS reservations;
 DROP TABLE IF EXISTS loans;

@@ -1,5 +1,11 @@
--- ChatGPT Generated Library Schema
 -- 拡張
+-- 貸出
+CREATE TABLE loan (
+loan_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+item_id UUID NOT NULL REFERENCES item(item_id) ON DELETE RESTRICT,
+patron_id UUID NOT NULL REFERENCES patron(patron_id) ON DELETE RESTRICT,
+checkout_branch_id UUID NOT NULL REFERENCES branch(branch_id),
+checkout_by UUID REFERENCES staff(staff_id),
 due_at TIMESTAMPTZ NOT NULL,
 checked_out_at TIMESTAMPTZ NOT NULL DEFAULT now(),
 returned_at TIMESTAMPTZ,
